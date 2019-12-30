@@ -74,8 +74,8 @@ def getDistanceDocs(tfidf, distance_dict):
             if docID in docs_dict:
                 docs_dict[docID][term] = weight
             else:
-                docs_dict.update({docID : {term : weight}})
-    print('ini docID', docs_dict)
+                docs_dict.update({docID: {term: weight}})
+    # print('ini docID', docs_dict)
     for doc, words in docs_dict.items():
         for word, values in words.items():
             sum = sum + math.pow(float(values), 2)
@@ -85,6 +85,7 @@ def getDistanceDocs(tfidf, distance_dict):
 
     return distance_dict
 
+
 def getDistanceQuery(tfidf):
     sum = 0
     for word, value in tfidf.items():
@@ -93,10 +94,11 @@ def getDistanceQuery(tfidf):
 
     return distance
 
+
 sub_dir = "document"
-query = "kafir"
+query = input("query : ")
 print('')
-print('The query is "', query, '"')
+# print('The query is "', query, '"')
 query = nlp(query)
 
 # initial dict
@@ -117,20 +119,22 @@ total_documents = len(list_of_filenames)
 
 # assign them ids
 ids = assignids(list_of_filenames)
-print('id : ', ids)
+# print('id : ', ids)
 
 # calculate tf-idf (weight) document & query
 list_of_docs.update(getTfDoc(list_of_docs))
 list_of_query.update(getTfQuery(list_of_query))
-print('list of term ', list_of_query, 'and ', list_of_docs)
+# print('list of term ', list_of_query, 'and ', list_of_docs)
 tfidf_docs.update(getWeightDocs(tfidf_docs, list_of_docs))
 tfidf_query.update(getWeightQuery(tfidf_query, list_of_query))
-print('ini tfidf ', tfidf_query, ' and ', tfidf_docs)
+print('tfidf query', tfidf_query)
+print('tfidf  doc', tfidf_docs)
 
 # get distance query & document
 distance_query = (getDistanceQuery(tfidf_query))
 distance_docs.update(getDistanceDocs(tfidf_docs, distance_docs))
-print('distance query ', distance_query, ' docs ', distance_docs)
+print('distance query ', distance_query)
+print('distance docs ', distance_docs)
 
 # get inner pproduct
 inner_product = {}
@@ -138,18 +142,24 @@ sum_ip = 0
 for word, value in tfidf_query.items():
     if word in tfidf_docs:
         for docID, values in tfidf_docs[word].items():
-            sum_ip = sum_ip + float(value*values)
-            inner_product.update({docID:sum_ip})
+            sum_ip = sum_ip + float(value * values)
+            inner_product.update({docID: sum_ip})
         sum_ip = 0
 # for docID, ip in inner_product.items():
 #     print(getFilenameById(docID, ids))
 print('inner product ', inner_product)
 
-# get similarity
+# get similarity (tfidf)
 similarity = {}
 calculate = 0
 for docID, value in inner_product.items():
     for doc, values in distance_docs.items():
         calculate = value / float(distance_query * distance_docs[doc])
-    print('similarity ',docID,' : ', calculate)
+        similarity.update({docID:calculate})
     calculate = 0
+
+for docID, value in similarity.items():
+    print('similarity ', getFilenameById(docID, ids), ' : ', similarity[docID])
+    # if getFilenameById(docID,ids) in list_of_filenames:
+    #     extract = getDocument(getFilenameById(docID,ids),sub_dir)
+    # print('extracted text', extract)

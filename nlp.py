@@ -1,17 +1,18 @@
-import unicodedata
-import sys
-import nltk
 import re
+
+import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import *
 
-def stemmed (chunk):
-    stemmed_word=[]
+
+def stemmed(chunk):
+    stemmed_word = []
     stemmer = PorterStemmer()
     for word in chunk:
         stemmed_word.append(stemmer.stem(word))
 
     return stemmed_word
+
 
 def removeStopwords(chunk):
     good = []
@@ -19,6 +20,7 @@ def removeStopwords(chunk):
         if word not in stopwords.words('english'):
             good.append(word)
     return good
+
 
 def nlp(sentence):
     # Reducing the sentece to all lower case letters
@@ -28,7 +30,7 @@ def nlp(sentence):
     tokens = nltk.word_tokenize(sentence)
 
     # Removing punctuation and unicode characters
-    tokens = words = re.findall(r'\w+', sentence,flags = re.UNICODE | re.LOCALE)
+    tokens = words = re.findall(r'\w+', sentence, flags=re.UNICODE | re.LOCALE)
 
     # Remove stopwords from the list
     important_words = []
@@ -44,7 +46,7 @@ def nlp(sentence):
         if word not in final:
             final.append(word)
 
-    #remove numbers from the list
+    # remove numbers from the list
     final = [item for item in final if item.isalpha()]
     stu = [item for item in stu if item.isalpha()]
 
