@@ -36,8 +36,15 @@ def getTfQuery(list_of_terms):
 def getDistanceDocs(list_of_terms, distance_dict):
     sum = 0
     for term, value in list_of_terms.items():
+        for docID, freq in value.items():
+            if docID in freq_docs_dict:
+                freq_docs_dict[docID][term] = freq
+            else:
+                freq_docs_dict.update({docID: {term: freq}})
+    print('ini freq docID', freq_docs_dict)
+    for docID, value in freq_docs_dict.items():
         # print('value item ', value)
-        for docID, frequency in value.items():
+        for term, frequency in value.items():
             sum = sum + math.pow(float(frequency), 2)
         distance = math.sqrt(sum)
         distance_dict.update({docID: distance})
@@ -66,6 +73,7 @@ list_of_query = {}
 total_documents = 0
 distance_query = 0
 distance_docs = {}
+freq_docs_dict = {}
 
 '''collect all the filenames'''
 list_of_filenames = findall(sub_dir)
@@ -80,7 +88,7 @@ ids = assignids(list_of_filenames)
 '''frequency document & query'''
 list_of_docs.update(getTfDoc(list_of_docs))
 list_of_query.update(getTfQuery(list_of_query))
-# print('list of term ', list_of_query, 'and ', list_of_docs)
+print('list of term ', list_of_query, 'and ', list_of_docs)
 
 '''get distance query & document'''
 distance_query = (getDistanceQuery(list_of_query))
@@ -91,17 +99,20 @@ print('distance docs ', distance_docs)
 # get inner product
 inner_product = {}
 sum_ip = 0
-for word, value in list_of_query.items():
-    if word in list_of_docs:
-        for docID, values in list_of_docs[word].items():
-            sum_ip = sum_ip + float(value * values)
-            inner_product.update({docID: sum_ip})
-        sum_ip = 0
+for docID, values in freq_docs_dict.items():
+    for word, value in list_of_query.items():
+        if word in values:
+            # print('bangsul ', docs_dict[docID])
+            # print('ini value ', values[word])
+            sum_ip = sum_ip + float(value * values[word])
+        inner_product.update({docID: sum_ip})
+    # print('hilih kintil ',sum_ip)
+    sum_ip = 0
 # for docID, ip in inner_product.items():
 #     print(getFilenameById(docID, ids))
 print('inner product ', inner_product)
 
-# get similarity (tfidf)
+# get similarity
 similarity = {}
 calculate = 0
 for docID, value in inner_product.items():
@@ -110,8 +121,11 @@ for docID, value in inner_product.items():
         similarity.update({docID:calculate})
     calculate = 0
 
-for docID, value in similarity.items():
-    print('similarity ', getFilenameById(docID, ids), ' : ', similarity[docID])
+sorted_similarity = OrderedDict(sorted(similarity.items(), key=lambda x: x[1], reverse=True))
+print('')
+print("Displaying results in relevance order")
+for docID, score in sorted_similarity.items():
+    print(getFilenameById(docID, ids), " : ", similarity[docID])
     # if getFilenameById(docID,ids) in list_of_filenames:
     #     extract = getDocument(getFilenameById(docID,ids),sub_dir)
     # print('extracted text', extract)

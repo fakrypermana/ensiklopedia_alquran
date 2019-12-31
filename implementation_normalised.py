@@ -25,6 +25,29 @@ def getTfDoc(list_of_terms):
                 list_of_terms.update({term: {ids[filename]: 1}})
     return list_of_terms
 
+def getNormalisedTermDocs(list_of_terms,normalised):
+    total_term = 0
+    for terms, value in list_of_terms.items():
+        for docID, freq in value.items():
+            if docID in freq_docs_dict:
+                freq_docs_dict[docID][terms] = freq
+            else:
+                freq_docs_dict.update({docID: {terms: freq}})
+    for docId, word in freq_docs_dict.items():
+        for term, freq in word.items():
+            total_term+=freq
+            docs_total_term.update({docId : total_term})
+        total_term = 0
+    for term, value in list_of_terms.items():
+        for docID, freq in value.items():
+            if term in normalised:
+                # if list_of_terms.has_key(term):
+                normalised[term][docID] = freq/docs_total_term[docID]
+            else:
+                normalised.update({term:{docID:freq/docs_total_term[docID]}})
+    print('total term ', docs_total_term)
+    return normalised
+
 
 def getTfQuery(list_of_terms):
     for word in query:
@@ -35,26 +58,20 @@ def getTfQuery(list_of_terms):
             list_of_terms.update({word: 1})
     return list_of_terms
 
+def getNormalisedQuery(list_of_terms,normalised):
+    for word, value in list_of_terms.items():
+        normalised.update({word : value/len(list_of_terms)})
+    return normalised
 
-def getWeightDocs(tfidf_scores, list_of_terms):
-    docs_dict_freq = {}
-    max_freq = {}
-    for term, value in list_of_terms.items():
+
+def getWeightDocs(tfidf_scores, normalised):
+    for term, value in normalised.items():
         # print('value item ', value)
         for docID, frequency in value.items():
-            if docID in docs_dict_freq:
-                docs_dict_freq[docID][term] = frequency
-            else:
-                docs_dict_freq.update({docID: {term: frequency}})
-            for word, freq in docs_dict_freq[docID].items():
-                if term in docs_dict_freq:
-                    max_freq = max(docs_dict_freq[docID].items(), key=operator.itemgetter(1))[1]
-                else:
-                    max_freq.update({docID:  max(docs_dict_freq[docID].items(), key=operator.itemgetter(1))[1]})
-            idf_value = math.log10(1 + float(total_documents / len(value)))
-            normalised = frequency/max_freq[docID]
-            # print('normalised ',frequency,'/',max_freq[docID])
-            tfidf = idf_value * normalised
+            # print('docID value item ',value)
+            # print('inside ', total_documents,'/',len(value))
+            idf_value = 1 + math.log(float(total_documents / len(value)))
+            tfidf = idf_value * frequency
             if term in inverse_term_freq:
                 # print('idf : ', inverse_term_freq)
                 if docID in inverse_term_freq[term]:
@@ -67,8 +84,6 @@ def getWeightDocs(tfidf_scores, list_of_terms):
             else:
                 inverse_term_freq.update({term: {docID: idf_value}})
                 tfidf_scores.update({term: {docID: tfidf}})
-    print('docs_dict_freq ', docs_dict_freq)
-    print('max frequency ', max_freq)
     return tfidf_scores
 
 
@@ -82,7 +97,6 @@ def getWeightQuery(tfidf_scores, list_of_terms):
 
 def getDistanceDocs(tfidf, distance_dict):
     sum = 0
-    docs_dict = {}
     for term, value in tfidf.items():
         for docID, weight in value.items():
             if docID in docs_dict:
@@ -103,7 +117,9 @@ def getDistanceDocs(tfidf, distance_dict):
 def getDistanceQuery(tfidf):
     sum = 0
     for word, value in tfidf.items():
+        # print('ini sumiati ',sum)
         sum = sum + math.pow(float(value), 2)
+        # print('ini sumiati uplot ', sum)
     distance = math.sqrt(sum)
 
     return distance
@@ -115,16 +131,21 @@ print('')
 # print('The query is "', query, '"')
 query = nlp(query)
 
-# initial dict
+# initial dictionary
 list_of_docs = {}
 list_of_query = {}
+list_of_term_normlised = {}
 total_documents = 0
 inverse_term_freq = {}
 tfidf_docs = {}
 tfidf_query = {}
 distance_query = 0
 distance_docs = {}
-
+docs_dict = {}
+normalised_query = {}
+normalised_docs = {}
+docs_total_term = {}
+freq_docs_dict = {}
 
 # collect all the filenames
 list_of_filenames = findall(sub_dir)
@@ -140,8 +161,13 @@ ids = assignids(list_of_filenames)
 list_of_docs.update(getTfDoc(list_of_docs))
 list_of_query.update(getTfQuery(list_of_query))
 print('list of term ', list_of_query, 'and ', list_of_docs)
-tfidf_docs.update(getWeightDocs(tfidf_docs, list_of_docs))
-tfidf_query.update(getWeightQuery(tfidf_query, list_of_query))
+normalised_docs.update(getNormalisedTermDocs(list_of_docs,normalised_docs))
+normalised_query.update(getNormalisedQuery(list_of_query,normalised_query))
+print('normalised ',normalised_query,'and',normalised_docs)
+tfidf_docs.update(getWeightDocs(tfidf_docs, normalised_docs))
+tfidf_query.update(getWeightQuery(tfidf_query, normalised_query))
+print('freq kemunculan kata ', freq_docs_dict)
+print('idf doc', inverse_term_freq)
 print('tfidf query', tfidf_query)
 print('tfidf  doc', tfidf_docs)
 
@@ -151,15 +177,18 @@ distance_docs.update(getDistanceDocs(tfidf_docs, distance_docs))
 print('distance query ', distance_query)
 print('distance docs ', distance_docs)
 
-# get inner pproduct
+# get inner product
 inner_product = {}
 sum_ip = 0
-for word, value in tfidf_query.items():
-    if word in tfidf_docs:
-        for docID, values in tfidf_docs[word].items():
-            sum_ip = sum_ip + float(value * values)
-            inner_product.update({docID: sum_ip})
-        sum_ip = 0
+for docID, value in docs_dict.items():
+    for word, values in tfidf_query.items():
+        if word in value:
+            # print('samsudin ', sum_ip)
+            # print('value bangsul ',word,' ',docID,' ', value[word], '*', values)
+            sum_ip = sum_ip + float(value[word] * values)
+    # print('samsudin uplot', sum_ip)
+    inner_product.update({docID: sum_ip})
+    sum_ip = 0
 # for docID, ip in inner_product.items():
 #     print(getFilenameById(docID, ids))
 print('inner product ', inner_product)
@@ -169,12 +198,18 @@ similarity = {}
 calculate = 0
 for docID, value in inner_product.items():
     for doc, values in distance_docs.items():
-        calculate = value / float(distance_query * distance_docs[doc])
-        similarity.update({docID:calculate})
+        if docID == doc:
+            # print('calculate ',value,'/',distance_query,'*',distance_docs[doc])
+            calculate = value / float(distance_query * distance_docs[doc])
+            # print('ini calculate ', calculate)
+            similarity.update({docID:calculate})
     calculate = 0
 
-for docID, value in similarity.items():
-    print('similarity ', docID, ' : ', similarity[docID])
+sorted_similarity = OrderedDict(sorted(similarity.items(), key=lambda x: x[1], reverse=True))
+print('')
+print("Displaying results in relevance order")
+for docID, score in sorted_similarity.items():
+    print('docID',docID,' ',getFilenameById(docID, ids), " : ", similarity[docID])
     # if getFilenameById(docID,ids) in list_of_filenames:
     #     extract = getDocument(getFilenameById(docID,ids),sub_dir)
     # print('extracted text', extract)

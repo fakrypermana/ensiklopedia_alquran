@@ -42,7 +42,7 @@ def getWeightDocs(tfidf_scores, list_of_terms):
         for docID, frequency in value.items():
             # print('docID value item ',value)
             # print('inside ', total_documents,'/',len(value))
-            idf_value = math.log10(1 + float(total_documents / len(value)))
+            idf_value = 1 + math.log10(float(total_documents / len(value)))
             tfidf = idf_value * frequency
             if term in inverse_term_freq:
                 # print('idf : ', inverse_term_freq)
