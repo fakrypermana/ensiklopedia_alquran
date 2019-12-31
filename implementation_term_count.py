@@ -6,7 +6,6 @@ from nlp import *
 from collections import OrderedDict
 import collections
 
-
 def getTfDoc(list_of_terms):
     for filename in list_of_filenames:
         data = getDocument(filename, sub_dir)
@@ -78,19 +77,18 @@ total_documents = len(list_of_filenames)
 ids = assignids(list_of_filenames)
 # print('id : ', ids)
 
-'''term-count model'''
-# frequency document & query
+'''frequency document & query'''
 list_of_docs.update(getTfDoc(list_of_docs))
 list_of_query.update(getTfQuery(list_of_query))
 # print('list of term ', list_of_query, 'and ', list_of_docs)
 
-# get distance query & document
+'''get distance query & document'''
 distance_query = (getDistanceQuery(list_of_query))
 distance_docs.update(getDistanceDocs(list_of_docs, distance_docs))
-# print('distance query ', distance_query)
-# print('distance docs ', distance_docs)
+print('distance query ', distance_query)
+print('distance docs ', distance_docs)
 
-# get inner pproduct
+# get inner product
 inner_product = {}
 sum_ip = 0
 for word, value in list_of_query.items():

@@ -1,10 +1,10 @@
 from __future__ import division
-import operator
+
 import math
+from collections import OrderedDict
+
 from collection import *
 from nlp import *
-from collections import OrderedDict
-import collections
 
 
 def getTfDoc(list_of_terms):
@@ -40,9 +40,9 @@ def getWeightDocs(tfidf_scores, list_of_terms):
     for term, value in list_of_terms.items():
         # print('value item ', value)
         for docID, frequency in value.items():
-            # print('docID value item ',docID)
-            inside = float(total_documents / frequency)
-            idf_value = math.log10(1 + inside)
+            # print('docID value item ',value)
+            # print('inside ', total_documents,'/',len(value))
+            idf_value = math.log10(1 + float(total_documents / len(value)))
             tfidf = idf_value * frequency
             if term in inverse_term_freq:
                 # print('idf : ', inverse_term_freq)
@@ -68,14 +68,13 @@ def getWeightQuery(tfidf_scores, list_of_terms):
 
 def getDistanceDocs(tfidf, distance_dict):
     sum = 0
-    docs_dict = {}
     for term, value in tfidf.items():
         for docID, weight in value.items():
             if docID in docs_dict:
                 docs_dict[docID][term] = weight
             else:
                 docs_dict.update({docID: {term: weight}})
-    # print('ini docID', docs_dict)
+    print('ini docID', docs_dict)
     for doc, words in docs_dict.items():
         for word, values in words.items():
             sum = sum + math.pow(float(values), 2)
@@ -110,6 +109,7 @@ tfidf_docs = {}
 tfidf_query = {}
 distance_query = 0
 distance_docs = {}
+docs_dict = {}
 
 # collect all the filenames
 list_of_filenames = findall(sub_dir)
@@ -124,7 +124,7 @@ ids = assignids(list_of_filenames)
 # calculate tf-idf (weight) document & query
 list_of_docs.update(getTfDoc(list_of_docs))
 list_of_query.update(getTfQuery(list_of_query))
-# print('list of term ', list_of_query, 'and ', list_of_docs)
+print('list of term ', list_of_query, 'and ', list_of_docs)
 tfidf_docs.update(getWeightDocs(tfidf_docs, list_of_docs))
 tfidf_query.update(getWeightQuery(tfidf_query, list_of_query))
 print('tfidf query', tfidf_query)
@@ -139,27 +139,34 @@ print('distance docs ', distance_docs)
 # get inner pproduct
 inner_product = {}
 sum_ip = 0
-for word, value in tfidf_query.items():
-    if word in tfidf_docs:
-        for docID, values in tfidf_docs[word].items():
-            sum_ip = sum_ip + float(value * values)
-            inner_product.update({docID: sum_ip})
-        sum_ip = 0
+for docID, values in docs_dict.items():
+    for word, value in tfidf_query.items():
+        if word in values:
+            # print('bangsul ', docs_dict[docID])
+            # print('ini value ', values[word])
+            sum_ip = sum_ip + float(value * values[word])
+        inner_product.update({docID: sum_ip})
+    # print('hilih kintil ',sum_ip)
+    sum_ip = 0
 # for docID, ip in inner_product.items():
 #     print(getFilenameById(docID, ids))
 print('inner product ', inner_product)
 
 # get similarity (tfidf)
 similarity = {}
-calculate = 0
 for docID, value in inner_product.items():
     for doc, values in distance_docs.items():
-        calculate = value / float(distance_query * distance_docs[doc])
-        similarity.update({docID:calculate})
+        calculate = value / float(distance_query * distance_docs[docID])
+        # print('perhitungan ',value,'/','float(',distance_query,'*',distance_docs[docID],')')
+        similarity.update({docID: calculate})
     calculate = 0
 
-for docID, value in similarity.items():
-    print('similarity ', getFilenameById(docID, ids), ' : ', similarity[docID])
-    # if getFilenameById(docID,ids) in list_of_filenames:
-    #     extract = getDocument(getFilenameById(docID,ids),sub_dir)
-    # print('extracted text', extract)
+sorted_similarity = OrderedDict(sorted(similarity.items(), key=lambda x: x[1], reverse=True))
+print('')
+print("Displaying results in relevance order")
+for docID, score in sorted_similarity.items():
+    print(getFilenameById(docID, ids), " : ", similarity[docID])
+
+# if getFilenameById(docID,ids) in list_of_filenames:
+#     extract = getDocument(getFilenameById(docID,ids),sub_dir)
+# print('extracted text', extract)
