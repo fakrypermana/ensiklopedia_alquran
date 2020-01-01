@@ -127,7 +127,7 @@ def getDistanceQuery(tfidf):
     return distance
 
 
-sub_dir = "document"
+sub_dir = "data"
 query = input("query : ")
 print('')
 # print('The query is "', query, '"')
@@ -211,7 +211,8 @@ sorted_similarity = OrderedDict(sorted(similarity.items(), key=lambda x: x[1], r
 print('')
 print("Displaying results in relevance order")
 for docID, score in sorted_similarity.items():
-    print('docID',docID,' ',getFilenameById(docID, ids), " : ", similarity[docID])
+    if score > 0 :
+        print(docID, " : ", similarity[docID])
 
 try:
     with open('result-nf.csv', 'w') as csv_file:

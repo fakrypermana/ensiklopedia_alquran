@@ -3,7 +3,7 @@ Amanah/Amanat
 Bahirah
 Haraj
 Midraran
-Da'irah/ad-dawa'ir
+Dairah/addawair
 Dafiq
 Lakum
 Kafir
@@ -14,9 +14,9 @@ Zhanna
 Fath
 Bashir
 Akwab/Kub
-Al-Aqsha
-Dif'un
-Makithina/Makitsin
+AlAqsha
+Difun
+Makitsin
 Ajaban
 gbaydbah/ghaibigaib
 yarta'
@@ -27,7 +27,7 @@ sukkirat
 'itiyyan
 qashd
 taghidh
-al-Muta'dl
+almutadl
 bakhs
 zhidin
 'ajulal/al-'ajal
@@ -48,4 +48,6 @@ ghasiqin/gashaqi
 hasidin/hasadan
 saja
 qala
+riba
 wal-zaytun/zaytunatin/wazaytuna
+yamhaq

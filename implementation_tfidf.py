@@ -95,11 +95,11 @@ def getDistanceQuery(tfidf):
     return distance
 
 
-sub_dir = "document"
+sub_dir = "data"
 query = input("query : ")
 print('')
-# print('The query is "', query, '"')
 query = nlp(query)
+print('The query is "', query, '"')
 
 # initial dict
 list_of_docs = {}
@@ -159,7 +159,7 @@ similarity = {}
 for docID, value in inner_product.items():
     for doc, values in distance_docs.items():
         if docID == doc:
-            print('calculate ',value,'/',distance_query,'*',distance_docs[doc])
+            # print('calculate ',value,'/',distance_query,'*',distance_docs[doc])
             calculate = value / float(distance_query * distance_docs[doc])
             # print('perhitungan ',value,'/','float(',distance_query,'*',distance_docs[docID],')')
             similarity.update({getFilenameById(docID, ids): calculate})
@@ -169,7 +169,8 @@ sorted_similarity = OrderedDict(sorted(similarity.items(), key=lambda x: x[1], r
 print('')
 print("Displaying results in relevance order")
 for docID, score in sorted_similarity.items():
-    print(similarity[docID])
+    if score > 0:
+        print(docID,' : ',similarity[docID])
 
 try:
     with open('result-tf.csv', 'w') as csv_file:
