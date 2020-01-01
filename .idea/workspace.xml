@@ -2,88 +2,92 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="812b5dd2-27ae-4c5b-85f1-510decf44685" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/comparing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/10-11-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/10-2-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/11-52-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/113-1-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/113-3-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/113-78-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/12-12-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/12-15-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/12-20-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/13-8-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/13-9-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/15-15-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/16-11-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/16-3-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/16-9-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/17-11-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/17-19-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/17-2-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/18-3-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/19-24-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/19-65-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/19-69-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/2-104-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/2-109-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/2-16-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/2-214-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/2-275-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/2-283-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/2-75-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/20-10-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/20-96-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/24-35-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/25-46-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/26-3-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/26-63-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/27-7-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/3-28-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/32-27-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/33-11-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/33-50-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/39-67-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/4-46-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/4-58-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/5-102-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/5-103-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/5-52-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/5-71-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/56-4-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/57-16-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/59-6-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/6-141-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/6-155-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/6-92-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/6-99-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/61-13-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/63-4-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/64-2-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/66-4-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/7-2-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/7-28-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/7-80-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/70-32-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/72-12-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/75-28-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/76-15-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/79-29-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/79-46-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/8-27-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/80-29-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/86-6-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/9-98-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/91-1-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/93-1-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/93-2-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/93-3-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/95-1-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/99-1-1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/implementation_normalised.py" beforeDir="false" afterPath="$PROJECT_DIR$/implementation_normalised.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/implementation_term_count.py" beforeDir="false" afterPath="$PROJECT_DIR$/implementation_term_count.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/implementation_tfidf.py" beforeDir="false" afterPath="$PROJECT_DIR$/implementation_tfidf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/10-11-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/10-2-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/11-52-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/113-1-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/113-3-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/113-78-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/12-12-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/12-15-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/12-20-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/13-8-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/13-9-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/15-15-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/16-11-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/16-3-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/16-9-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/17-11-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/17-19-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/17-2-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/18-3-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/19-24-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/19-65-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/19-69-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/2-104-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/2-109-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/2-16-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/2-214-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/2-275-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/2-283-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/2-75-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/20-10-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/20-96-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/24-35-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/25-46-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/26-3-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/26-63-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/27-7-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/3-28-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/32-27-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/33-11-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/33-50-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/39-67-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/4-46-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/4-58-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/5-102-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/5-103-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/5-52-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/5-71-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/56-4-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/57-16-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/59-6-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/6-141-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/6-155-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/6-92-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/6-99-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/61-13-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/63-4-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/64-2-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/66-4-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/7-2-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/7-28-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/7-80-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/70-32-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/72-12-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/75-28-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/76-15-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/79-29-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/79-46-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/8-27-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/80-29-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/86-6-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/9-98-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/91-1-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/93-1-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/93-2-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/93-3-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/95-1-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/99-1-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/sample-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/sample-2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/sample-3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/tried-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/tried-2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/tried-3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/sample-1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/sample-2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/sample-3.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -96,8 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/implementation_term_count.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="124" column="17" lean-forward="true" selection-start-line="124" selection-start-column="17" selection-end-line="124" selection-end-column="17" />
+            <state relative-caret-position="1972">
+              <caret line="124" column="17" selection-start-line="124" selection-start-column="17" selection-end-line="124" selection-end-column="17" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -108,8 +112,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/implementation_tfidf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="173" column="4" lean-forward="true" selection-start-line="173" selection-start-column="4" selection-end-line="173" selection-end-column="4" />
+            <state relative-caret-position="2822">
+              <caret line="173" column="4" selection-start-line="173" selection-start-column="4" selection-end-line="173" selection-end-column="4" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -120,7 +124,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/implementation_normalised.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
+            <state relative-caret-position="182">
               <caret line="208" lean-forward="true" selection-start-line="208" selection-end-line="208" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
@@ -142,7 +146,7 @@
         <entry file="file://$PROJECT_DIR$/result.csv">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -372,7 +376,7 @@
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -383,7 +387,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32850242" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32850242" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -392,20 +396,8 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/document/70-32-1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/document/61-13-1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/document/70-32-1.txt" />
+    <entry file="file://$PROJECT_DIR$/document/61-13-1.txt" />
     <entry file="file://$PROJECT_DIR$/collection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
@@ -413,75 +405,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/document/2-104-1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="11" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/document/17-11-1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="9" column="42" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/document/5-102-1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/document/2-16-1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/document/4-58-1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="35" lean-forward="true" selection-start-column="35" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/document/2-214-1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="46" lean-forward="true" selection-start-column="46" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tfidf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="53" column="21" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/document/tried-2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="39" lean-forward="true" selection-start-column="39" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/document/tried-3.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/document/tried-1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="50" lean-forward="true" selection-start-column="50" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/document/2-104-1.txt" />
+    <entry file="file://$PROJECT_DIR$/document/17-11-1.txt" />
+    <entry file="file://$PROJECT_DIR$/document/5-102-1.txt" />
+    <entry file="file://$PROJECT_DIR$/document/2-16-1.txt" />
+    <entry file="file://$PROJECT_DIR$/document/4-58-1.txt" />
+    <entry file="file://$PROJECT_DIR$/document/2-214-1.txt" />
+    <entry file="file://$PROJECT_DIR$/tfidf.py" />
+    <entry file="file://$PROJECT_DIR$/document/tried-2.txt" />
+    <entry file="file://$PROJECT_DIR$/document/tried-3.txt" />
+    <entry file="file://$PROJECT_DIR$/document/tried-1.txt" />
     <entry file="file://$PROJECT_DIR$/nlp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -510,8 +443,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/implementation_term_count.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="124" column="17" lean-forward="true" selection-start-line="124" selection-start-column="17" selection-end-line="124" selection-end-column="17" />
+        <state relative-caret-position="1972">
+          <caret line="124" column="17" selection-start-line="124" selection-start-column="17" selection-end-line="124" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/implementation_tfidf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2822">
+          <caret line="173" column="4" selection-start-line="173" selection-start-column="4" selection-end-line="173" selection-end-column="4" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -528,23 +471,13 @@
     <entry file="file://$PROJECT_DIR$/result.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/implementation_tfidf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="173" column="4" lean-forward="true" selection-start-line="173" selection-start-column="4" selection-end-line="173" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/implementation_normalised.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
+        <state relative-caret-position="182">
           <caret line="208" lean-forward="true" selection-start-line="208" selection-end-line="208" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
