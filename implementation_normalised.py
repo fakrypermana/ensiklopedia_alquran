@@ -1,4 +1,6 @@
 from __future__ import division
+
+import csv
 import operator
 import math
 from collection import *
@@ -70,7 +72,7 @@ def getWeightDocs(tfidf_scores, normalised):
         for docID, frequency in value.items():
             # print('docID value item ',value)
             # print('inside ', total_documents,'/',len(value))
-            idf_value = 1 + math.log(float(total_documents / len(value)))
+            idf_value = math.log10(float(total_documents / len(value)))
             tfidf = idf_value * frequency
             if term in inverse_term_freq:
                 # print('idf : ', inverse_term_freq)
@@ -202,7 +204,7 @@ for docID, value in inner_product.items():
             # print('calculate ',value,'/',distance_query,'*',distance_docs[doc])
             calculate = value / float(distance_query * distance_docs[doc])
             # print('ini calculate ', calculate)
-            similarity.update({docID:calculate})
+            similarity.update({getFilenameById(docID, ids):calculate})
     calculate = 0
 
 sorted_similarity = OrderedDict(sorted(similarity.items(), key=lambda x: x[1], reverse=True))
@@ -210,6 +212,14 @@ print('')
 print("Displaying results in relevance order")
 for docID, score in sorted_similarity.items():
     print('docID',docID,' ',getFilenameById(docID, ids), " : ", similarity[docID])
+
+try:
+    with open('result-nf.csv', 'w') as csv_file:
+        writer = csv.writer(csv_file)
+        for key, value in similarity.items():
+            writer.writerow([key, value])
+except IOError:
+    print('I/O error')
     # if getFilenameById(docID,ids) in list_of_filenames:
     #     extract = getDocument(getFilenameById(docID,ids),sub_dir)
     # print('extracted text', extract)

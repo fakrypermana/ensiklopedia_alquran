@@ -1,10 +1,11 @@
 from __future__ import division
-
+import operator
 import math
 from collections import OrderedDict
 
 from collection import *
 from nlp import *
+import csv
 
 
 def getTfDoc(list_of_terms):
@@ -42,7 +43,7 @@ def getWeightDocs(tfidf_scores, list_of_terms):
         for docID, frequency in value.items():
             # print('docID value item ',value)
             # print('inside ', total_documents,'/',len(value))
-            idf_value = 1 + math.log10(float(total_documents / len(value)))
+            idf_value = math.log10(float(total_documents / len(value)))
             tfidf = idf_value * frequency
             if term in inverse_term_freq:
                 # print('idf : ', inverse_term_freq)
@@ -127,6 +128,7 @@ list_of_query.update(getTfQuery(list_of_query))
 print('list of term ', list_of_query, 'and ', list_of_docs)
 tfidf_docs.update(getWeightDocs(tfidf_docs, list_of_docs))
 tfidf_query.update(getWeightQuery(tfidf_query, list_of_query))
+print('idf doc', inverse_term_freq)
 print('tfidf query', tfidf_query)
 print('tfidf  doc', tfidf_docs)
 
@@ -145,7 +147,7 @@ for docID, values in docs_dict.items():
             # print('bangsul ', docs_dict[docID])
             # print('ini value ', values[word])
             sum_ip = sum_ip + float(value * values[word])
-        inner_product.update({docID: sum_ip})
+    inner_product.update({docID: sum_ip})
     # print('hilih kintil ',sum_ip)
     sum_ip = 0
 # for docID, ip in inner_product.items():
@@ -156,16 +158,27 @@ print('inner product ', inner_product)
 similarity = {}
 for docID, value in inner_product.items():
     for doc, values in distance_docs.items():
-        calculate = value / float(distance_query * distance_docs[docID])
-        # print('perhitungan ',value,'/','float(',distance_query,'*',distance_docs[docID],')')
-        similarity.update({docID: calculate})
+        if docID == doc:
+            print('calculate ',value,'/',distance_query,'*',distance_docs[doc])
+            calculate = value / float(distance_query * distance_docs[doc])
+            # print('perhitungan ',value,'/','float(',distance_query,'*',distance_docs[docID],')')
+            similarity.update({getFilenameById(docID, ids): calculate})
     calculate = 0
 
 sorted_similarity = OrderedDict(sorted(similarity.items(), key=lambda x: x[1], reverse=True))
 print('')
 print("Displaying results in relevance order")
 for docID, score in sorted_similarity.items():
-    print(getFilenameById(docID, ids), " : ", similarity[docID])
+    print(similarity[docID])
+
+try:
+    with open('result-tf.csv', 'w') as csv_file:
+        writer = csv.writer(csv_file)
+        for key, value in similarity.items():
+            writer.writerow([key, value])
+except IOError:
+    print('I/O error')
+
 
 # if getFilenameById(docID,ids) in list_of_filenames:
 #     extract = getDocument(getFilenameById(docID,ids),sub_dir)

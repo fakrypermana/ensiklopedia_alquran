@@ -1,4 +1,6 @@
 from __future__ import division
+
+import csv
 import operator
 import math
 from collection import *
@@ -117,15 +119,24 @@ similarity = {}
 calculate = 0
 for docID, value in inner_product.items():
     for doc, values in distance_docs.items():
-        calculate = value / float(distance_query * distance_docs[doc])
-        similarity.update({docID:calculate})
+        if docID == doc:
+            calculate = value / float(distance_query * distance_docs[doc])
+            similarity.update({getFilenameById(docID, ids):calculate})
     calculate = 0
 
 sorted_similarity = OrderedDict(sorted(similarity.items(), key=lambda x: x[1], reverse=True))
 print('')
 print("Displaying results in relevance order")
 for docID, score in sorted_similarity.items():
-    print(getFilenameById(docID, ids), " : ", similarity[docID])
+    print(similarity[docID])
+
+try:
+    with open('result-tc.csv', 'w') as csv_file:
+        writer = csv.writer(csv_file)
+        for key, value in similarity.items():
+            writer.writerow([key, value])
+except IOError:
+    print('I/O error')
     # if getFilenameById(docID,ids) in list_of_filenames:
     #     extract = getDocument(getFilenameById(docID,ids),sub_dir)
     # print('extracted text', extract)
