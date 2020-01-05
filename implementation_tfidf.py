@@ -2,7 +2,7 @@ from __future__ import division
 import operator
 import math
 from collections import OrderedDict
-
+import textwrap
 from collection import *
 from nlp import *
 import csv
@@ -75,7 +75,7 @@ def getDistanceDocs(tfidf, distance_dict):
                 docs_dict[docID][term] = weight
             else:
                 docs_dict.update({docID: {term: weight}})
-    print('ini docID', docs_dict)
+    # print('ini docID', docs_dict)
     for doc, words in docs_dict.items():
         for word, values in words.items():
             sum = sum + math.pow(float(values), 2)
@@ -125,12 +125,13 @@ ids = assignids(list_of_filenames)
 # calculate tf-idf (weight) document & query
 list_of_docs.update(getTfDoc(list_of_docs))
 list_of_query.update(getTfQuery(list_of_query))
-print('list of term ', list_of_query, 'and ', list_of_docs)
+# print('list of term ', list_of_query, 'and ', list_of_docs)
 tfidf_docs.update(getWeightDocs(tfidf_docs, list_of_docs))
 tfidf_query.update(getWeightQuery(tfidf_query, list_of_query))
-print('idf doc', inverse_term_freq)
-print('tfidf query', tfidf_query)
-print('tfidf  doc', tfidf_docs)
+# print('idf doc', inverse_term_freq)
+print('===================== CALCULATION =====================')
+print('query weight', tfidf_query)
+print('doc weight', tfidf_docs)
 
 # get distance query & document
 distance_query = (getDistanceQuery(tfidf_query))
@@ -152,7 +153,10 @@ for docID, values in docs_dict.items():
     sum_ip = 0
 # for docID, ip in inner_product.items():
 #     print(getFilenameById(docID, ids))
-print('inner product ', inner_product)
+for docID, score in inner_product.items():
+    if score > 0 :
+        print('dot product ',getFilenameById(docID,ids),' ', inner_product[docID])
+print("=========================================================\n")
 
 # get similarity (tfidf)
 similarity = {}
@@ -167,7 +171,7 @@ for docID, value in inner_product.items():
 
 sorted_similarity = OrderedDict(sorted(similarity.items(), key=lambda x: x[1], reverse=True))
 print('')
-print("Displaying results in relevance order")
+print("========= Displaying results in relevance order =========")
 for docID, score in sorted_similarity.items():
     if score > 0:
         print(docID,' : ',similarity[docID])
@@ -180,7 +184,14 @@ try:
 except IOError:
     print('I/O error')
 
+print("\n")
 
+extract = []
+for doc, score in sorted_similarity.items():
+    extract.append(getDocument(doc,sub_dir))
+print("========================================== EXTRACTED TEXT ==========================================")
+print('\n',textwrap.fill(extract[0], 100))
+print("====================================================================================================")
 # if getFilenameById(docID,ids) in list_of_filenames:
 #     extract = getDocument(getFilenameById(docID,ids),sub_dir)
 # print('extracted text', extract)
